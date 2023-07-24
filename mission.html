@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission</title>
+    <link rel="stylesheet" href="style1.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+               body {
+    background-color: black;
+    margin: 0; 
+    padding: 0; 
+}
+.wrapper {
+    margin-left: 475px;
+    margin-top: 150px;
+    color: white;
+    position: relative;
+    width: 1000px;
+    height: 10%;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: height; .2s ease;
+  }
+    </style>
+</head>
+<body>
+    <img class="img1" src="img.webp">
+   
+   
+    <div class="wrapper">
+        <div class="form-box login">
+            <h2>Your Mission:</h2>
+            <h3> One Mission open designated "Chimera": <br> Chimera is a virus which can only be stopped by its antidosis designated "Bellerophon" check the entire mission below</h3>
+                <button type="button" class="btn" onclick="window.location.href='mission1.html'">Show mission</button> 
+            </form>
+        </div>
+    </div>
+    <script>
+        // Check if the user has logged in
+        const isLoggedIn = localStorage.getItem('isLoggedIn');
+
+        // If the user is not logged in, redirect them back to the login page
+        if (isLoggedIn !== 'true') {
+            window.location.replace('index.html');
+        }
+    </script>
+</body>
+</html>

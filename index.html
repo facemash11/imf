@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verification</title>
+    <link rel="stylesheet" href="style1.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+    background-color: black;
+    margin: 0; 
+    padding: 0; 
+}
+.wrapper {
+    margin-left: 725px;
+    margin-top: 150px;
+    color: white;
+    position: relative;
+    width: 400px;
+    height: 2%;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: height; .2s ease;
+  }
+    </style>
+</head>
+<body>
+    <img class="img1" src="img.webp">
+   
+    <h1 class="verification">Welcome to the IMF, Please verify yourself below:</h1>
+    <div class="wrapper">
+        <div class="form-box login">
+            <h2>Verification</h2>
+            <form id="verification-form"> <!-- Add an ID to the form for referencing in JavaScript -->
+                <div class="input-box">
+                    <span class="icon" id="email-icon"><ion-icon name="chatbox-ellipses"></ion-icon></span>
+                    <input type="text" id="email-input" name="email" required oninput="toggleIconVisibility(this, 'email-icon')">
+                    <label>Your Agent Number</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon" id="password-icon"><ion-icon name="chatbox-ellipses"></ion-icon></span>
+                    <input type="password" id="password-input" name="password" required oninput="toggleIconVisibility(this, 'password-icon')">
+                    <label>Your password</label>
+                </div>
+                <button type="button" class="btn" onclick="sendEmail()">Login</button> 
+            </form>
+        </div>
+    </div>
+    <script>
+        // Your JavaScript code here
+        const errorMessage = document.createElement('p');
+        errorMessage.classList.add('error-message'); // Add the 'error-message' class to the element
+        errorMessage.style.color = 'red';
+        errorMessage.style.fontWeight = 'bold';
+
+        function sendEmail() {
+            const agentNumber = document.getElementById('email-input').value.trim();
+            const password = document.getElementById('password-input').value.trim();
+
+            if (agentNumber === 'a1004' && password === 'Prullenbak10@') {
+                // Store the login status in local storage
+                localStorage.setItem('isLoggedIn', 'true');
+                window.location.replace('mission.html');
+            } else {
+                errorMessage.textContent = 'Incorrect Agent Number or Password';
+                const formBox = document.querySelector('.form-box.login');
+                formBox.appendChild(errorMessage);
+            }
+        }
+
+        function toggleIconVisibility(input, iconId) {
+            const icon = document.getElementById(iconId);
+            if (input.value.trim() === '') {
+                icon.style.display = 'block';
+            } else {
+                icon.style.display = 'none';
+            }
+            // Remove the error message when the user starts typing again
+            errorMessage.textContent = '';
+        }
+    </script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="script.js"></script> <!-- Include the external script.js file -->
+</body>
+</html>
